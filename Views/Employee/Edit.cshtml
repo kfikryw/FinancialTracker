@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+@model SpendSmart.Models.Employee;
+<div class="text-left mb-4">
+    <h2 class="text-primary fw-bold">Edit Record</h2>
+</div>
+
+<div class="card shadow-lg border-0 rounded-3">
+    <div class="card-body p-4">
+        <form asp-action="Edit" asp-controller="Employee" method="post">
+            <label>Date:</label>
+            <input type="date" asp-for="Date" class="form-control" required />
+
+            <label>Category:</label>
+            <input type="text" asp-for="Category" class="form-control" required />
+
+            <label>Amount:</label>
+            <input type="number" asp-for="Amount" class="form-control" step="0.01" required />
+
+            <button type="submit" class="btn btn-sucess mt-3">Save</button>
+        </form>
+
+    </div>
+</div>
+

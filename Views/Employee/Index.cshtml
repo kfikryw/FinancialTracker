@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Homepage";
+}
+
+@model List<Employee>
+<div class="text-left mb-3">
+    <h2>Personal Finance Tracker</h2>
+</div>
+<table class="table table-hover table-bordered shadow-sm rounded">
+    <thead class="table-dark">
+        <tr>
+            <th class="text-center">No.</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Category</th>
+            <th class="text-right">Amount</th>
+            
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model){
+             <tr>
+                <td class="text-center">@item.Id</td>
+                <td class="text-center">@item.Date</td>
+                <td class="text-center">@item.Category</td>
+                <td class="text-right">@item.Amount</td>
+                
+                <td class="text-center">
+                    <a class="btn btn-sm btn-primary" asp-controller="Employee" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+       
+    </tbody>
+</table>
+<div class="d-flex justify-content-end">
+    <a type="button" class="btn btn-success" asp-controller="Employee" asp-action="Create">+ Create</a>
+</div>
